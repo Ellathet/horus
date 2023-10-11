@@ -34,21 +34,22 @@ const convertPageToPGJ = async (pdfPath) => {
 
 convertPageToPGJ(argv.file)
 .then(async () => {
-  fs.readdirSync("./").map(f => {
+  const texts = await Promise.all(fs.readdirSync("./").map(f => {
     if(f.endsWith('jpg')){
-      client
+      return client
       .textDetection(f)
       .then((results) => {
         const detections = results[0].textAnnotations;
-        const text = detections.map(a => a.description).join(' ')
-        const fileName = DateTime.now().toFormat('yyyy-LL-dd_HH-mm-ss') + '.txt'
-        fs.writeFileSync(fileName, text)
         fs.unlinkSync(f)
-        console.log("Your file was been created in" + fileName)
+        return detections.map(a => a.description).join(' ')
       })
       .catch((err) => {
         console.error(err)
       })}
-  })
+  }))
+
+  const fileName = DateTime.now().toFormat('yyyy-LL-dd_HH-mm-ss') + '.txt'
+  fs.writeFileSync(fileName, texts.join(' '))
+  console.log("Your file was been created in" + fileName)
 })
 
