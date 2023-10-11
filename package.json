@@ -1,0 +1,17 @@
+{
+  "name": "horus",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Mikha Thet <social.amais@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "read": "node index.js --f"
+  },
+  "dependencies": {
+    "@google-cloud/vision": "^4.0.2",
+    "luxon": "^3.4.3",
+    "pdf-poppler": "^0.2.1",
+    "pdf2image": "^1.2.3",
+    "yargs": "^17.7.2"
+  }
+}
