@@ -1,2 +1,3 @@
-Put your google-key.json inside a repo, and start with:
-`yarn read <path-to-pdf>`
+Put your google-key.json inside a repo, run
+`yarn` and `yarn start:dev` to init.
+The will be started in http://localhost:3000
