@@ -1,13 +1,79 @@
 <html>
+
 <head>
-  <title>Node.js MVC with EJS</title>
+  <title>POC Analisar Documento</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css">
+  <style>
+    ::-webkit-scrollbar {
+      width: 8px; 
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: #0073e6; 
+      border-radius: 6px; 
+    }
+
+    ::-webkit-scrollbar-track {
+      background: #f1f1f1; 
+      border-radius: 6px; 
+    }
+  </style>
 </head>
+
 <body>
-  <h1>Items</h1>
-  <ul>
-    <% for (let item of items) { %>
-      <li><%= item %></li>
-    <% } %>
-  </ul>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+  <div class="container">
+    <h1 class="mt-5">Analise documento</h1>
+    <form method="POST" action="/" enctype="multipart/form-data">
+      <div class="mb-3 d-flex" style="gap: 10px;">
+        <input type="file" class="form-control" name="pdf" accept=".pdf" required />
+        <button type="submit" class="btn btn-primary">Enviar</button>
+      </div>
+    </form>
+    <h3>Texto do Documento</h3>
+    <div class="overflow-auto bg-light p-2 rounded d-flex align-items-start justify-content-center "
+      style="height: 250px;">
+      <% if (document.rawText) { %>
+        <p>
+          <%= document.rawText %>
+        </p>
+        <% } %>
+    </div>
+    <div class="container mt-4">
+      <div class="row gx-3">
+        <div class="col-sm">
+          <h4>Descrição dos Fatos</h4>
+          <div class="overflow-auto bg-light p-2 rounded" style="height: 150px;">
+            <% if (document.factsDescription) { %>
+              <p>
+                <%= document.factsDescription %>
+              </p>
+              <% } %>
+          </div>
+        </div>
+        <div class="col-sm">
+          <h4>Fundamentos Jurídicos</h4>
+          <div class="overflow-auto bg-light p-2 rounded" style="height: 150px;">
+            <% if (document.legalGrounds) { %>
+              <p>
+                <%= document.legalGrounds %>
+              </p>
+              <% } %>
+          </div>
+        </div>
+        <div class="col-sm">
+          <h4>Estratégia Sugerida</h4>
+          <div class="overflow-auto bg-light p-2 rounded" style="height: 150px;">
+            <% if (document.suggestedStrategy) { %>
+              <p>
+                <%= document.suggestedStrategy %>
+              </p>
+              <% } %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </body>
+
 </html>

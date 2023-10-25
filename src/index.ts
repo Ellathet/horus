@@ -5,7 +5,7 @@ import path from 'path'
 import { getEnv } from './utils/env'
 
 const app = express()
-const port = getEnv<number>('NODE_PORT')
+const port = getEnv<number>('NODE_PORT', 3000)
 
 app.set('view engine', 'ejs')
 app.set('views', path.join(__dirname, 'views'))
