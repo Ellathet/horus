@@ -2,5 +2,6 @@ node_modules
 *.jpg
 *.txt
 *.pdf
+.env
 
 google-key.json

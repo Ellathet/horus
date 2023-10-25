@@ -1,17 +1,34 @@
 {
   "name": "horus",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "src/index.js",
   "author": "Mikha Thet <social.amais@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "read": "node index.js --f"
+    "start:dev": "nodemon"
   },
   "dependencies": {
     "@google-cloud/vision": "^4.0.2",
+    "dotenv": "^16.3.1",
+    "ejs": "^3.1.9",
+    "express": "^4.18.2",
     "luxon": "^3.4.3",
     "pdf-poppler": "^0.2.1",
     "pdf2image": "^1.2.3",
     "yargs": "^17.7.2"
+  },
+  "devDependencies": {
+    "@types/ejs": "^3.1.4",
+    "@types/express": "^4.17.20",
+    "@typescript-eslint/eslint-plugin": "^6.4.0",
+    "eslint": "^8.0.1",
+    "eslint-config-standard-with-typescript": "^39.1.1",
+    "eslint-plugin-ejs": "^0.0.2",
+    "eslint-plugin-import": "^2.25.2",
+    "eslint-plugin-n": "^15.0.0 || ^16.0.0 ",
+    "eslint-plugin-promise": "^6.0.0",
+    "nodemon": "^3.0.1",
+    "ts-node": "^10.9.1",
+    "typescript": "*"
   }
 }
